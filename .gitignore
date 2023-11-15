@@ -1,0 +1,9 @@
+# Requirements
+requirements.txt
+
+#My virtual environment
+/my_env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
