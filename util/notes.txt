@@ -1,0 +1,27 @@
+Activate the python environment:
+my_env\Scripts\activate
+
+
+Get current directory:
+    __location__ = os.path.realpath(
+            os.path.join(os.getcwd(), os.path.dirname(__file__))
+        )
+
+
+
+
+{
+    "configuration": {
+        "backlog": {
+            "fileName": "",
+            "lastUpdated" : ""
+        },
+       "importCSV" : {
+            "required" : ["Paralegal", "Case Reference", "Client Company Name", "Defendant", "ATE Premium", 
+            "Counsels POC Fee", "Council Advice Fee", "Issue Fee", "Expert Report Fee", "Court Hearing Fee"],
+            "opt_required" : [["Contract Start Date", "Contract End Date"]]
+        }
+    }
+}
+
+

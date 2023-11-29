@@ -1,0 +1,135 @@
+{
+    "configuration": {
+        "backlog": {
+            "fileName": "",
+            "lastUpdated" : ""
+        },
+        "validation_settings" : {
+            "required" : ["Paralegal", "Case Reference", "Client Company Name", "Defendant", 
+            "ATE Premium", "Counsels POC Fee", "Council Advice Fee", "Issue Fee", "Expert Report Fee", "Court Hearing Fee"],
+            "opt_required" : [["Contract Start Date", "Contract End Date"]]
+        },
+       "importCSV" : {
+            "AutoHeaders" : "CLEAN",
+            "headers" : {
+                "Favorite" : {
+                    "type" : "String"
+                },
+                "ID" : {
+                    "type" : "Int"
+                },
+                "Funder" : {
+                    "type" : "String"
+                },
+                "Paralegal" : {
+                    "type" : "String"
+                },
+                "Case Reference" : {
+                    "type" : "String"
+                },
+                "Client Company Name" : {
+                    "type" : "String"
+                },
+                "Company House Number" : {
+                    "type" : "String"
+                },
+                "Client Address Line 1" : {
+                    "type" : "String"
+                },
+                "Client Address Line 2" : {
+                    "type" : "String"
+                },
+                "Client County" : {
+                    "type" : "String"
+                },
+                "Client City" : {
+                    "type" : "String"
+                },
+                "Client Country" : {
+                    "type" : "String"
+                },
+                "Client Email" : {
+                    "type" : "String"
+                },
+                "Client Post Code" : {
+                    "type" : "String"
+                },
+                "Client Contact" : {
+                    "type" : "String"
+                },
+                "Director First Name" : {
+                    "type" : "String"
+                },
+                "Director Last Name" : {
+                    "type" : "String"
+                },
+                "Director Email" : {
+                    "type" : "String"
+                },
+                "Defendant" : {
+                    "type" : "String"
+                },
+                "Defendant Address Line 1" : {
+                    "type" : "String"
+                },
+                "Defendant Address Line 2" : {
+                    "type" : "String"
+                },
+                "Defendant City" : {
+                    "type" : "String"
+                },
+                "Defendant County" : {
+                    "type" : "String"
+                },
+                "Defendant Country" : {
+                    "type" : "String"
+                },
+                "Defendant Post Code" : {
+                    "type" : "String"
+                },
+                "Contract Start Date" : {
+                    "type" : "DateTime"
+                },
+                "Contract End Date" : {
+                    "type" : "DateTime"
+                },
+                "Site Address Line 1" : {
+                    "type" : "String"
+                },
+                "Site Address Line 2" : {
+                    "type" : "String"
+                },
+                "Site Address County" : {
+                    "type" : "String"
+                },
+                "Site Address City" : {
+                    "type" : "String"
+                },
+                "Site Address Post Code" : {
+                    "type" : "String"
+                },
+                "ATE Premium" : {
+                    "type" : "Float"
+                },
+                "Council Advice Fee" : {
+                    "type" : "Float"
+                },
+                "Counsels POC Fee" : {
+                    "type" : "Float"
+                },
+                "Contract POC Fee" : {
+                    "type" : "Float"
+                },
+                "Issue Fee" : {
+                    "type" : "Float"
+                },
+                "Expert Report Fee" : {
+                    "type" : "Float"
+                },
+                "Court Hearing Fee" : {
+                    "type" : "Float"
+                }
+            }
+        }
+    }
+}

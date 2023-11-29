@@ -1,9 +1,19 @@
 # Requirements
 requirements.txt
 
+# Custom user configuration
+config.json
+
 #My virtual environment
 /my_env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+
+
+#CSV files storing case information
+\docs
+
+# vscode
+/.vscode
