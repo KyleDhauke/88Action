@@ -19,19 +19,17 @@ import pandas as pd
 from io import StringIO
 from enum import Enum
 import re
-import numpy as np
 from datetime import datetime
-import _config
 from _config import AutoHeaders
 
-def pandas_import(csv_file, import_settings):
+def pandas_import(csv_file:str, import_settings:dict) -> pd.DataFrame:
     """
     Reads the CSV path and returns a pandas dataframe.
     Additional functionality includes handling 'sep = ,' at the start of the
     csv and cleaning column datatypes according to the import settings.
     
     Args:
-        csv_file (_type_): String or path-like object directing to the CSV
+        csv_file: String or path-like object directing to the CSV
         import_settings: Dict object retrieved from the JSON config.
 
     Returns:
@@ -47,7 +45,7 @@ def pandas_import(csv_file, import_settings):
             lines.pop(0)
     ccl = pd.read_csv(StringIO("\n".join(lines)), dtype = object , sep=new_sep, encoding = encoding, skipinitialspace= True)
     ccl.set_index(keys= ["ID"], inplace= True, verify_integrity= False)
-    auto_headers = AutoHeaders(import_settings['AutoHeaders'])
+    auto_headers = AutoHeaders(import_settings['autoHeaders'])
     #Enabling 'CLEAN' option in Import Settings means columns are organized
     # based on their user-defined import column settings.
     if auto_headers == AutoHeaders.CLEAN:
@@ -60,8 +58,6 @@ def pandas_import(csv_file, import_settings):
     else:
     # Not recommended. All columns will likely be object datatypes.
         return ccl
-
-import math
 
 def _clean_df(curr_series: pd.Series, headers):
     """
@@ -77,7 +73,7 @@ def _clean_df(curr_series: pd.Series, headers):
     """
     col_name = curr_series.name
     new_series = curr_series
-    p_type = PandaTypes(headers[col_name]['type'])
+    p_type = _panda_mapping(headers[col_name]['type'])
     
     # Try-except statements to catch TypeError in case of 
     # unforseen circumstances.
@@ -149,11 +145,22 @@ def _clean_series_date(obj):
         return date
     else:
         return obj
-    
+
+
+def _panda_mapping(val):
+    pandaMapping = {PandaTypes.FLOAT64 : ['Currency', 'Decimal', 'Percent']}
+    for k,v in pandaMapping.items():
+        if val in v:
+            return k
+    return PandaTypes(val)
+   
     
 class PandaTypes(Enum):
-    INT64 = 'Int'
+    INT64 = 'Integer'
     STRING64 = 'String'
     FLOAT64 = 'Float'
     DATETIME64 = 'DateTime'
-    BOOL = 'bool'
+    BOOL = 'Boolean'
+    
+    # Create my own class 
+    

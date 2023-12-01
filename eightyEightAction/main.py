@@ -21,12 +21,11 @@ Returns:
 """
 
 import click
-import pandas as pd
 import _validation
 import _config
 import _backlog
 import _set_up
-import numpy as np
+import _report
 
 
 # @click.command()
@@ -40,11 +39,16 @@ def main():
     """
     config = _config.Config()
     
-    csv = "C:/Users/kyle4/repos/Project 88Action/util/docs/CCL Import sheet (Cases to be funded).csv"   
+    csv = "C:/Users/kyle4/repos/Project 88Action/util/docs/CCL Import sheet (Cases to be funded).csv"  
     import_settings = config.data['configuration']['importCSV']
-
     ccl = _set_up.pandas_import(csv, import_settings)
-    print(_validation.validate_batch(ccl, config))
+    rejected_cases, rejected_blueprint = _validation.validate_batch(ccl, config)
+    
+    if not(rejected_cases.empty):
+        _report.generate_rejected_excel(rejected_cases, rejected_blueprint, config)
+    else:
+        _report.generate_accepted_excel(ccl)
+    
     return
 
 

@@ -10,13 +10,13 @@
             "opt_required" : [["Contract Start Date", "Contract End Date"]]
         },
        "importCSV" : {
-            "AutoHeaders" : "CLEAN",
+            "autoHeaders" : "CLEAN",
             "headers" : {
                 "Favorite" : {
                     "type" : "String"
                 },
                 "ID" : {
-                    "type" : "Int"
+                    "type" : "Integer"
                 },
                 "Funder" : {
                     "type" : "String"

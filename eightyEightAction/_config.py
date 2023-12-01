@@ -56,7 +56,7 @@ class Config:
         return
     
     def get_auto_header(self):
-        return AutoHeaders(self.data['configuration']['importCSV']['AutoHeaders'])
+        return AutoHeaders(self.data['configuration']['importCSV']['autoHeaders'])
     
     
     
